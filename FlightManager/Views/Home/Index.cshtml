@@ -1,0 +1,25 @@
+﻿@model IEnumerable<FlightManager.Models.Flight>
+@{ 
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @if (User.Identity.IsAuthenticated)
+    {
+        @if (User.IsInRole("Admin"))
+        {
+            <h2>Welcome in the FligthManager System, you are logged as Admin!</h2>
+        }
+        else
+        {
+            <h2>Welcome in the FligthManager System, you are logged as User!</h2>
+        }
+    }
+    else
+    {
+        <h2>Welcome dear customer</h2>
+
+        <a asp-controller="Flights" asp-action="Index"><button type="button" class="btn btn-primary">Book your fligth</button></a>
+
+    }
+</div>
